@@ -7,3 +7,5 @@ export enum KnowledgeType {
 
 export * from "./comp"
 export * from "./anim"
+export * from "./tool"
+export * from "./refer"

@@ -8,6 +8,8 @@ export type Comp = {
   type: KnowledgeType.COMP
   rules: string[]
   anims: AnimGen[]
+  fullname?: string
+  use: string[]
 }
 export type Attr = {
   name: string
@@ -27,6 +29,7 @@ export function comp(
     type: KnowledgeType.COMP,
     rules: [],
     anims: [],
+    use: [],
   }
 
   function attr(
@@ -59,9 +62,26 @@ export function comp(
     data.anims.push(...anims)
   }
 
+  function fullname(
+    fullname: string,
+  ) {
+    data.fullname = fullname
+  }
+
+  function use(
+    ...uses: string[]
+  ) {
+    data.use.push(...uses)
+  }
+
   return {
     attr,
     rule,
+    // anim,
+    fullname,
+    use,
     toData,
   }
 }
+
+export type CompGen = ReturnType<typeof comp>

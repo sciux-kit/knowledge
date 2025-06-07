@@ -3,13 +3,19 @@
   "version": "0.0.0",
   "description": "The knwoledge database of Sciux for LLM.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "to-json": "npm run build && node dist/to-json.js"
   },
   "author": "BijonAI Team <info@bijon.ai>",
   "license": "MIT",
   "packageManager": "pnpm@10.8.1",
   "devDependencies": {
-    "tsup": "^8.5.0"
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.15.30"
   }
 }
