@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "to-json": "npm run build && node dist/to-json.js"
+    "to-json": "npm run build && node dist/to-json.js",
+    "to-content": "npm run build && node dist/to-content.js"
   },
   "author": "BijonAI Team <info@bijon.ai>",
   "license": "MIT",
