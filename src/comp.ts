@@ -10,6 +10,7 @@ export type Comp = {
   anims: AnimGen[]
   fullname?: string
   use: string[]
+  examples: string[]
 }
 export type Attr = {
   name: string
@@ -30,6 +31,7 @@ export function comp(
     rules: [],
     anims: [],
     use: [],
+    examples: [],
   }
 
   function attr(
@@ -62,6 +64,12 @@ export function comp(
     data.anims.push(...anims)
   }
 
+  function example(
+    example: string,
+  ) {
+    data.examples.push(example)
+  }
+
   function fullname(
     fullname: string,
   ) {
@@ -80,6 +88,7 @@ export function comp(
     // anim,
     fullname,
     use,
+    example,
     toData,
   }
 }
