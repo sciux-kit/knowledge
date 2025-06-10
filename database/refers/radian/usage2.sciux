@@ -17,11 +17,3 @@
   </angle>
   <line :start="A" :end="B" value="2.4m"/>
 </canvas>
-```
-
-explanation:
-- Let the original point move to the center of the canvas.
-- Define the division of the unit, in there 1 unit = 20 px
-- Calculate the half angle of the open part of the angle.
-- start side and end side should be dahsed because there is a line to close the figure.
-- Save start point and end point as variable A and B, so we can use them in the line component.

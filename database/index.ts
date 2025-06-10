@@ -9,6 +9,8 @@ import * as polygon from "./comps/canvas/polygon"
 import * as parametric from "./comps/canvas/parametric"
 import * as figure from "./comps/canvas/figure"
 
+import * as radian from "./refers/radian"
+
 const resolve = (series: object) => Object.entries(series).map(([key, value]) => value)
 export const comps: CompGen[] = []
 export const anims: AnimGen[] = []
@@ -16,6 +18,7 @@ export const tools: ToolGen[] = []
 export const refers: ReferGen[] = []
 
 comps.push(...resolve(angle), ...resolve(circle), ...resolve(dot), ...resolve(functionSet), ...resolve(line), ...resolve(plane), ...resolve(polygon), ...resolve(parametric), ...resolve(figure))
+refers.push(...resolve(radian))
 
 export { default as config } from "./config"
 export * from "./config"

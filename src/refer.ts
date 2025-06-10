@@ -3,15 +3,18 @@ import { KnowledgeType } from "#"
 export type Refer = {
   type: KnowledgeType.REFER
   document: string
+  desc: string
   explainations: string[]
 }
 
 export function refer(
-  document: string
+  document: string,
+  desc: string,
 ) {
   const data: Refer = {
     type: KnowledgeType.REFER,
     document,
+    desc,
     explainations: [],
   }
 
