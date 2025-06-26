@@ -6,6 +6,7 @@ func.fullname('canvas:function')
 
 func.attr('expr', 'The expression of the function', '(x: number) => number')
 func.attr('domain', 'The domain of the function', '[number, number]')
+func.attr('division', 'The division of the function', 'number', '1')
 
 // <canvas:function:point-on>
 const point_on = comp('point-on', 'Setup a (x,y) coordinate on the function according to the x coordinate')

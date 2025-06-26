@@ -10,8 +10,8 @@ plane.attr('division', 'The division of the plane, which means how much pixels p
 plane.attr('domain', 'The domain of the plane on x-axis', '[number, number]')
 plane.attr('range', 'The range of the plane on y-axis', '[number, number]')
 plane.attr('label', 'The label resolve function of the plane, give the label count, return the latex string to display on the number plane', '(count: number) => string', '(count) => count.toString()')
-plane.attr('x-label', 'The label of the x-axis (support latex)', 'string', 'x')
-plane.attr('y-label', 'The label of the y-axis (support latex)', 'string', 'y')
+// plane.attr('x-label', 'The label of the x-axis (support latex)', 'string', 'x')
+// plane.attr('y-label', 'The label of the y-axis (support latex)', 'string', 'y')
 
 // <canvas:projection>
 const projection = comp('projection', 'a line from a point to axis')
