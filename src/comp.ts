@@ -11,6 +11,7 @@ export type Comp = {
   fullname?: string
   use: string[]
   examples: string[]
+  withs: Comp[]
 }
 export type Attr = {
   name: string
@@ -32,6 +33,13 @@ export function comp(
     anims: [],
     use: [],
     examples: [],
+    withs: [],
+  }
+
+  function withComp(
+    ...withComps: CompGen[]
+  ) {
+    data.withs.push(...withComps.map(i => i.toData()))
   }
 
   function attr(
@@ -89,6 +97,7 @@ export function comp(
     fullname,
     use,
     example,
+    withComp,
     toData,
   }
 }

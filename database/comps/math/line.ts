@@ -21,4 +21,5 @@ const endPoint = comp("end-point", "The end point of the line.")
 endPoint.fullname("canvas:line:end-point")
 endPoint.attr("as", "The variable name of the end point, you can use the variable in following context, [x, y] will be the value of the variable", "string")
 
-export { line, endPoint, startPoint }
+line.withComp(endPoint, startPoint)
+export default line

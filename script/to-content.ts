@@ -1,8 +1,40 @@
 import { comps, anims, tools, refers, config, type Config } from "@"
-import type { Comp, Anim, Tool, Refer } from "#"
+import type { Comp, Anim, Tool, Refer, CompGen } from "#"
 import fs from "node:fs"
 
 const start = Date.now()
+
+function generateComp(comp: Comp) {
+  let content = ''
+  const data = comp
+  content += `\n\n## \`<${data.name}>\` (\`<${data.fullname}>\`)`
+  content += `\n${data.desc}`
+  if (data.attrs.length > 0) {
+    content += `\n\n### Attributes`
+    for (const attr of data.attrs) {
+      content += `\n- \`${attr.name}\`: ${attr.desc} (${attr.type})${attr.dft ? ` [${attr.dft}]` : ""}`
+    }
+  }
+  if (data.rules.length > 0) {
+    content += `\n\n### Rules`
+    for (const rule of data.rules) {
+      content += `\n- ${rule}`
+    }
+  }
+  if (data.examples.length > 0) {
+    content += `\n\n### Examples`
+    for (const example of data.examples) {
+      content += `\n${example}`
+    }
+  }
+  if (data.use.length > 0) {
+    content += `\n\n> Components under namespace: ${data.use.map(i => `\`<${i}>\``).join(", ")}`
+  }
+  for (const withComp of data.withs) {
+    content += generateComp(withComp)
+  }
+  return content
+}
 
 function generateComps() {
   let content = ''
@@ -15,30 +47,7 @@ function generateComps() {
 
   content += `\n\n# Components`
   for (const comp of comps) {
-    const data = comp.toData()
-    content += `\n\n## \`<${data.name}>\` (\`<${data.fullname}>\`)`
-    content += `\n${data.desc}`
-    if (data.attrs.length > 0) {
-      content += `\n\n### Attributes`
-      for (const attr of data.attrs) {
-        content += `\n- \`${attr.name}\`: ${attr.desc} (${attr.type})${attr.dft ? ` [${attr.dft}]` : ""}`
-      }
-    }
-    if (data.rules.length > 0) {
-      content += `\n\n### Rules`
-      for (const rule of data.rules) {
-        content += `\n- ${rule}`
-      }
-    }
-    if (data.examples.length > 0) {
-      content += `\n\n### Examples`
-      for (const example of data.examples) {
-        content += `\n${example}`
-      }
-    }
-    if (data.use.length > 0) {
-      content += `\n\n> Components under namespace: ${data.use.map(i => `\`<${i}>\``).join(", ")}`
-    }
+    content += generateComp(comp.toData())
     content += `\n\n!=========!`
   }
   console.log(`[TO-CONTENT] Processed ${comps.length} components`)

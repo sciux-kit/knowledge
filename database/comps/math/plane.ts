@@ -23,4 +23,5 @@ projection.attr('type', 'The type of the projection line', "'horizontal' | 'vert
 
 projection.rule('Must used in <plane> component')
 
-export { plane, projection }
+plane.withComp(projection)
+export default plane

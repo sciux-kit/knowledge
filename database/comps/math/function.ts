@@ -15,4 +15,5 @@ point_on.fullname('canvas:function:point-on')
 point_on.attr('x', 'The x coordinate of the coordinate on the function you want to save', 'number')
 point_on.attr('as', 'The name of the variable', 'string')
 
-export { func as function, point_on }
+func.withComp(point_on)
+export default func

@@ -33,4 +33,4 @@ Otherwise, you can use the control point as tag in the \`<figure>\` component.
 \`\`\`
 `)
 
-export { figure }
+export default figure

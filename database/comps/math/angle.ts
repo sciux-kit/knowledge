@@ -18,6 +18,7 @@ angle.attr("end-side-value", "The display latex value of the end side of the ang
 
 angle.use("arc", "bounding", "end-point", "start-point", "origin")
 
+
 // <canvas:angle:arc>
 const arc = comp("arc", "a arc for tagging the value of an angle, must be used under an <angle> component.")
 arc.fullname("canvas:angle:arc")
@@ -52,4 +53,5 @@ origin.fullname("canvas:angle:origin")
 origin.attr("as", "The variable name of the coordinate will be saved in the context", "string")
 origin.attr("value", "The display latex", "string")
 
-export { angle, arc, bounding, endPoint, startPoint, origin }
+angle.withComp(arc, bounding, endPoint, startPoint, origin)
+export default angle

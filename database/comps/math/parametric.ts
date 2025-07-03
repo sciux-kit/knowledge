@@ -18,4 +18,5 @@ point_on.attr('as', 'The name of the variable, save a coordinate set ([number, n
 point_on.attr('as-max', 'The name of the variable, save the maximum coordinate ([number, number])', 'string')
 point_on.attr('as-min', 'The name of the variable, save the minimum coordinate ([number, number])', 'string')
 
-export { parametric, point_on }
+parametric.withComp(point_on)
+export default parametric
