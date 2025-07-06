@@ -13,9 +13,9 @@ plane.attr('label', 'The label resolve function of the plane, give the label cou
 // plane.attr('x-label', 'The label of the x-axis (support latex)', 'string', 'x')
 // plane.attr('y-label', 'The label of the y-axis (support latex)', 'string', 'y')
 
-// <canvas:projection>
+// <canvas:plane:projection>
 const projection = comp('projection', 'a line from a point to axis')
-projection.fullname('canvas:projection')
+projection.fullname('canvas:plane:projection')
 
 projection.attr('x', 'The x coordinate of the point', 'number')
 projection.attr('y', 'The y coordinate of the point', 'number')
