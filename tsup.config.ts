@@ -4,7 +4,7 @@ import { defineConfig } from 'tsup'
 const sciuxFilePlugin = {
   name: 'text-file-plugin',
   setup(build: any) {
-    build.onLoad({ filter: /\.sciux$/ }, async (args: any) => {
+    build.onLoad({ filter: /\.{sciux|md}$/ }, async (args: any) => {
       const contents = readFileSync(args.path, 'utf8');
       return {
         contents: `export default ${JSON.stringify(contents)};`,
